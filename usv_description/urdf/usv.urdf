@@ -1,0 +1,265 @@
+<?xml version="1.0" ?>
+<robot name="usv_robot">
+
+  <!-- <joint name="usv/left_chassis_engine_joint" type="revolute">
+    <parent link="usv"/>
+    <child link="usv/left_engine_link"/>
+    <origin xyz="0     1.348 -0.546" rpy="0      0      1.57079"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57079" upper="1.57079" effort="10.0" velocity="10.0"/>
+  </joint>
+  <joint name="usv/left_engine_propeller_joint" type="continuous">
+    <parent link="usv"/>
+    <child link="usv/left_propeller_link"/>
+    <origin xyz="0     0.151 -0.17" rpy="0 0 0"/>
+    <axis xyz="0 -1  0"/>
+    <limit lower="0.0" upper="0.0" effort="100.0" velocity="100.0"/>
+  </joint>
+  <joint name="usv/right_chassis_engine_joint" type="revolute">
+    <parent link="usv"/>
+    <child link="usv/right_engine_link"/>
+    <origin xyz="0    -1.348 -0.546" rpy="0      0      1.57079"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57079" upper="1.57079" effort="10.0" velocity="10.0"/>
+  </joint>
+  <joint name="usv/right_engine_propeller_joint" type="continuous">
+    <parent link="usv"/>
+    <child link="usv/right_propeller_link"/>
+    <origin xyz="0     0.151 -0.17" rpy="0 0 0"/>
+    <axis xyz="0 -1  0"/>
+    <limit lower="0.0" upper="0.0" effort="100.0" velocity="100.0"/>
+  </joint> !-->
+  <link name="usv">
+    <inertial>
+      <mass value="727.247"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="935.646" ixy="0.0" ixz="0.0" iyy="1285.757" iyz="0.0" izz="2072.475"/>
+    </inertial>
+    <collision name="usv/box_collision001">
+      <origin xyz="0      0      0.38926" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="1.99008 1.50858 0.559889"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision002">
+      <origin xyz="-1.73     0       0.12087" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="1.99008 1.52 0.028"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision003">
+      <origin xyz="1.73    0      0.12087" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="1.99008 1.52 0.028"/>
+      </geometry>
+    </collision>
+    <collision name="usv/cylinder_collision025">
+      <origin xyz="0      -1.36239 -0.24011" rpy="1.5708  0      1.57079"/>
+      <geometry>
+        <cylinder radius="0.272196" length="7"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision004">
+      <origin xyz="0      -1.36239 -0.04364" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="0.5444 7 0.44"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision005">
+      <origin xyz="0      -1.36239  0.04047" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="0.691388 4.2583 0.161106"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision013">
+      <origin xyz="-0.80263 -1.35067  0.13541" rpy="1.5708  0      1.57079"/>
+      <geometry>
+        <box size="0.803743 0.329741 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision014">
+      <origin xyz="0.80263 -1.35067  0.13541" rpy="-1.5708   0       1.57079"/>
+      <geometry>
+        <box size="0.803743 0.329741 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision015">
+      <origin xyz="0.57678 -1.08572  0.44876" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="0.182903 0.328882 0.431239"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision016">
+      <origin xyz="-0.57677 -1.08572  0.44876" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="0.182903 0.328882 0.431239"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision017">
+      <origin xyz="-0.80263  1.332    0.33791" rpy="1.5708  0.39269 1.57079"/>
+      <geometry>
+        <box size="0.734711 0.329741 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision018">
+      <origin xyz="-0.80263 -1.00279  0.45628" rpy="1.5708  0      1.57079"/>
+      <geometry>
+        <box size="0.112524 0.379202 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision019">
+      <origin xyz="0.80263 -1.33199  0.33791" rpy="-1.5708  -0.39269  1.57079"/>
+      <geometry>
+        <box size="0.734711 0.329741 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision020">
+      <origin xyz="0.80263 -1.00279  0.45628" rpy="1.5708   0      -1.57079"/>
+      <geometry>
+        <box size="0.112524 0.379202 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision031">
+      <origin xyz="0       1.362   -0.04364" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="0.5444 7 0.44"/>
+      </geometry>
+    </collision>
+    <collision name="usv/cylinder_collision031">
+      <origin xyz="0       1.362   -0.24011" rpy="1.5708  0      1.57079"/>
+      <geometry>
+        <cylinder radius="0.272196" length="7"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision032">
+      <origin xyz="-0.80263 -1.33199  0.33791" rpy="1.5708  -0.39269  1.57079"/>
+      <geometry>
+        <box size="0.734711 0.329741 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision033">
+      <origin xyz="0.80263 1.332   0.33791" rpy="-1.5708   0.39269  1.57079"/>
+      <geometry>
+        <box size="0.734711 0.329741 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision034">
+      <origin xyz="-0.80263  1.351    0.13541" rpy="1.5708  0      1.57079"/>
+      <geometry>
+        <box size="0.803743 0.329741 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision035">
+      <origin xyz="0.80263 1.351   0.13541" rpy="-1.5708   0       1.57079"/>
+      <geometry>
+        <box size="0.803743 0.329741 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision036">
+      <origin xyz="-0.80263  1.00299  0.45628" rpy="1.5708  0      1.57079"/>
+      <geometry>
+        <box size="0.112524 0.379202 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision037">
+      <origin xyz="0.80263 1.00299 0.45628" rpy="1.5708   0      -1.57079"/>
+      <geometry>
+        <box size="0.112524 0.379202 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision038">
+      <origin xyz="0.73 1.37 0.36" rpy="-1.5708   0       1.57079"/>
+      <geometry>
+        <box size="0.734711 0.6 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision039">
+      <origin xyz="0.73 -1.37  0.36" rpy="-1.5708   0       1.57079"/>
+      <geometry>
+        <box size="0.734711 0.6 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision040">
+      <origin xyz="-0.73  1.37  0.36" rpy="-1.5708   0       1.57079"/>
+      <geometry>
+        <box size="0.734711 0.6 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision041">
+      <origin xyz="-0.73 -1.37  0.36" rpy="-1.5708   0       1.57079"/>
+      <geometry>
+        <box size="0.734711 0.6 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision042">
+      <origin xyz="0      -1.36239  0.645" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="0.76 1.5 0.0459061"/>
+      </geometry>
+    </collision>
+    <collision name="usv/box_collision043">
+      <origin xyz="0      1.36239 0.645" rpy="0      0      1.57079"/>
+      <geometry>
+        <box size="0.76 1.5 0.0459061"/>
+      </geometry>
+    </collision>
+    <visual name="usv/base_visual">
+      <origin xyz="0 0 0" rpy="0      0      1.57079"/>
+      <geometry>
+              <mesh filename="package://usv_description/meshes/USV.dae" scale="10 10 10"/>
+      </geometry>
+    </visual>
+  </link>
+ <!-- <link name="usv/left_engine_link">
+    <inertial>
+      <mass value="15.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.25" iyz="0.0" izz="0.25"/>
+    </inertial>
+    <visual name="usv/Motor_L_visual">
+      <origin xyz="0 0 0" rpy="-1.57 0 0"/>
+      <geometry>
+              <mesh filename="package://two_wheeled_robot/meshes/motor.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="usv/left_propeller_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.00208" ixy="0.0" ixz="0.0" iyy="0.00333" iyz="0.0" izz="0.00208"/>
+    </inertial>
+    <visual name="usv/Prop_L_visual">
+      <origin xyz="0 0 0" rpy="-1.57 0 0"/>
+      <geometry>
+              <mesh filename="package://two_wheeled_robot/meshes/propeller.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="usv/right_engine_link">
+    <inertial>
+      <mass value="15.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.25" iyz="0.0" izz="0.25"/>
+    </inertial>
+    <visual name="usv/Motor_R_visual">
+      <origin xyz="0 0 0" rpy="-1.57 0 0"/>
+      <geometry>
+              <mesh filename="package://two_wheeled_robot/meshes/motor.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="usv/right_propeller_link">
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.00208" ixy="0.0" ixz="0.0" iyy="0.00333" iyz="0.0" izz="0.00208"/>
+    </inertial>
+    <visual name="usv/Prop_R_visual">
+      <origin xyz="0 0 0" rpy="-1.57 0 0"/>
+      <geometry>
+              <mesh filename="package://two_wheeled_robot/meshes/propeller.dae" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link> -->
+</robot>

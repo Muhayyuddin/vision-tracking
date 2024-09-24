@@ -1,0 +1,7 @@
+image: coast_map.pgm
+mode: trinary
+resolution: 0.5
+origin: [-1.52e+03, -109, 0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.25
