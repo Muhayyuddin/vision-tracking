@@ -1,42 +1,54 @@
-Detailed instructions will be updated soon.. 
+# Benchmarking Vision-Based Object Tracking for USVs in Complex Maritime Environments
 
-## Dependencies
+
+## System Requirements 
+
+- Ubuntu 20.04
+- ROS Galactic
+- Pytorch
+
+## Installing simulator
+To run the code, we first need to install the MBZIRC simulator. Below link contains the detailed instructions to install the simulator
+
+https://github.com/osrf/mbzirc
+
+
+## Environment
+In order to deal with the dependencies issue, we will use two workspaces, one for the simulator and the controllers and the other workspace will be for vision trackers. 
+
+### Sim and Control workspace
+
+To be consistent with the simulator installation instructions, we will use the same workspace for controllerz, which is called mbzirc_ws. below are the instructions. 
+
+Clone the repository inside the simulator workspace. 
 
 ```
 pip install transforms3d
-sudo apt install ros-galactic-robot-localization 
-sudo apt install ros-galactic-xacro 
-sudo apt install ros-galactic-joint-state-publisher
+cd mbzirc_ws/src
+git clone https://github.com/Muhayyuddin/vision-tracking.git
 ```
-```
-
-run the flowing commands in seperate terminals 
-```
+from the mbzirc_ws build the code using the following command 
 
 ```
-ros2 launch mbzirc_ros competition_local.launch.py ign_args:="-v 4 -r coast.sdf"
+cd ..
+IGNITION_VERSION=fortress colcon build --merge-install
 ```
-```
-ros2 launch mbzirc_ign spawn.launch.py name:=usv world:=coast model:=usv x:=-1450 y:=-16.5 z:=0.3 R:=0 P:=0 Y:=0  slot0:=mbzirc_rgbd_camera   slot0_rpy:="0 -15 0" 
+### Vision workspace 
+for the vision workspace from the above-cloned repository, copy the zip files "pytracking" and 'trackers' and past them into a seperate folder called "tracker_ws/src"
+to build the vision workspace, create a virtual environment using the following instructions
 
+```
+virtualenv -p python3 tracking
+source tracking/bin/activate
+```
+## Run the Code
+open a terminal and run the following launch file. This launch fille will launch the simulator, spawn the USV into the simulator, launch the robot state publisher, and controller
+```
+ros2 launch usv_description launch_env_controller.launch.py 
+```
+open another terminal and run the following command to launch the tracker.
 
-slot1:=mbzirc_planar_lidar 
-
-ros2 launch mbzirc_ign spawn.launch.py name:=usv world:=simple_demo model:=usv type:=usv x:=15 y:=0 z:=0.3 R:=0 P:=0 Y:=0 slot0:=mbzirc_rgbd_camera   slot0_rpy:="0 -14 0" 
 ```
-```
-export PYTHONPATH=$PYTHONPATH:~/mbzirc_ws/src/nav_packages/usv_control/src
-export PYTHONPATH=$PYTHONPATH:~/portsecurity_ws/src/inspection/mbzirc/usv_control/src
-export PYTHONPATH=$PYTHONPATH:~/mbzirc_ws/src/marine-nav-ontologies/usv_control/src
-
-ros2 run usv_control twist_publisher 
-```
-```
-ros2 run navigation navigate 
-```
-```
-ros2 launch usv_description usv.launch.py
-```
-```
-ros2 run custom_tf_broadcaster publish_odometry_and_tf 
+cd ~/tracker_ws/src/pytracking_image
+python3 tracker_node.py
 ```
