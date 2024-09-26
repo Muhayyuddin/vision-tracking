@@ -24,7 +24,7 @@ Clone the repository inside the simulator workspace.
 
 ```
 pip install transforms3d
-cd mbzirc_ws/src
+cd ~/mbzirc_ws/src
 git clone https://github.com/Muhayyuddin/vision-tracking.git
 ```
 from the mbzirc_ws build the code using the following command 
@@ -34,12 +34,18 @@ cd ..
 IGNITION_VERSION=fortress colcon build --merge-install
 ```
 ### Vision workspace 
-for the vision workspace from the above-cloned repository, copy the zip files "pytracking" and past them into a seperate folder called "tracker_ws/src"
+for the vision workspace from the above-cloned repository, copy the zip files "pytracking_image" and past it into a seperate folder called "tracker_ws/src"
 to build the vision workspace, create a virtual environment using the following instructions
+
 
 ```
 virtualenv -p python3 tracking
 source tracking/bin/activate
+cd ~/mbzirc/src
+mv pytracking_image.zip ~/tracker_ws/src/
+cd ~/tracker_ws/src/
+unzip pytracking_image.zip 
+
 ```
 ## Run the Code
 open a terminal and run the following launch file. This launch file will launch the simulator, spawn the USV into the simulator, launch the robot state publisher, and controller
@@ -52,6 +58,7 @@ open another terminal and run the following command to launch the tracker.
 cd ~/tracker_ws/src/pytracking_image
 python3 tracker_node.py 
 ```
+To change the tracker in tracker_node.py modify the name of the tracker such as tomp, tamos, or seqtrack.
 ### Acknowledgment 
 (Pytracking) https://github.com/visionml/pytracking
 (SeqTrack)   https://github.com/microsoft/VideoX/tree/master/SeqTrack
