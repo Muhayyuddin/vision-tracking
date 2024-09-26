@@ -18,7 +18,7 @@ In order to deal with the dependencies issue, we will use two workspaces, one fo
 
 ### Sim and Control workspace
 
-To be consistent with the simulator installation instructions, we will use the same workspace for controllerz, which is called mbzirc_ws. below are the instructions. 
+To be consistent with the simulator installation instructions, we will use the same workspace for controllers, which is called mbzirc_ws. below are the instructions. 
 
 Clone the repository inside the simulator workspace. 
 
@@ -34,7 +34,7 @@ cd ..
 IGNITION_VERSION=fortress colcon build --merge-install
 ```
 ### Vision workspace 
-for the vision workspace from the above-cloned repository, copy the zip files "pytracking" and 'trackers' and past them into a seperate folder called "tracker_ws/src"
+for the vision workspace from the above-cloned repository, copy the zip files "pytracking" and past them into a seperate folder called "tracker_ws/src"
 to build the vision workspace, create a virtual environment using the following instructions
 
 ```
@@ -42,7 +42,7 @@ virtualenv -p python3 tracking
 source tracking/bin/activate
 ```
 ## Run the Code
-open a terminal and run the following launch file. This launch fille will launch the simulator, spawn the USV into the simulator, launch the robot state publisher, and controller
+open a terminal and run the following launch file. This launch file will launch the simulator, spawn the USV into the simulator, launch the robot state publisher, and controller
 ```
 ros2 launch usv_description launch_env_controller.launch.py 
 ```
@@ -50,5 +50,8 @@ open another terminal and run the following command to launch the tracker.
 
 ```
 cd ~/tracker_ws/src/pytracking_image
-python3 tracker_node.py
+python3 tracker_node.py 
 ```
+### Acknowledgment 
+(Pytracking) https://github.com/visionml/pytracking
+(SeqTrack)   https://github.com/microsoft/VideoX/tree/master/SeqTrack
