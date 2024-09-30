@@ -8,13 +8,13 @@
 - Pytorch
 
 ## Installing simulator
-To run the code, we first need to install the MBZIRC simulator. Below link contains the detailed instructions to install the simulator
+To run the code, we first need to install the MBZIRC simulator. The below link contains detailed instructions to install the simulator
 
 https://github.com/osrf/mbzirc
 
 
 ## Environment
-In order to deal with the dependencies issue, we will use two workspaces, one for the simulator and the controllers and the other workspace will be for vision trackers. 
+To deal with the dependencies issue, we will use two workspaces, one for the simulator and the controllers and the other workspace will be for vision trackers. 
 
 ### Sim and Control workspace
 
@@ -34,7 +34,7 @@ cd ..
 IGNITION_VERSION=fortress colcon build --merge-install
 ```
 ### Vision workspace 
-for the vision workspace from the above-cloned repository, copy the zip files "pytracking_image" and past it into a seperate folder called "tracker_ws/src"
+for the vision workspace from the above-cloned repository, copy the "pytracking_image" folder and past it into a separate folder called "tracker_ws/src"
 to build the vision workspace, create a virtual environment using the following instructions
 
 
@@ -42,10 +42,7 @@ to build the vision workspace, create a virtual environment using the following 
 virtualenv -p python3 tracking
 source tracking/bin/activate
 cd ~/mbzirc/src
-mv pytracking_image.zip ~/tracker_ws/src/
-cd ~/tracker_ws/src/
-unzip pytracking_image.zip 
-
+mv -r pytracking_image/ ~/tracker_ws/src/
 ```
 ## Run the Code
 open a terminal and run the following launch file. This launch file will launch the simulator, spawn the USV into the simulator, launch the robot state publisher, and controller
