@@ -6,7 +6,7 @@ Vision-based target tracking is crucial for unmanned surface vehicles (USVs) to 
 @ARTICLE{10848073,
   title={Benchmarking Vision-Based Object Tracking for USVs in Complex Maritime Environments},
   journal={IEEE Access}, 
-  author={Din, Muhayy Ud and Baidar Bakht, Ahsan and Akram, Waseem and Dong, Yihao and Seneviratne, Lakmal and Hussain, Irfan},
+  author={Muhayy, {Ud Din} and Ahsan, {Baidar Bakht} and Waseem, Akram and Yihao, Dong and Lakmal, Seneviratne and Irfan, Hussain},
   year={2025},
   volume={13},
   pages={15014-15027},
